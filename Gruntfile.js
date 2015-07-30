@@ -41,7 +41,9 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         // Add filespec list here
-        'Gruntfile.js'
+        'Gruntfile.js', 
+        'public/dist/**/*.js',
+        'public/lib/**/*.js'
       ],
       options: {
         force: 'true',
@@ -49,7 +51,12 @@ module.exports = function(grunt) {
         ignores: [
           'public/lib/**/*.js',
           'public/dist/**/*.js'
-        ]
+        ],
+
+        globals: {
+          jQuery: true,
+          underscore: true
+        }
       }
     },
 
@@ -57,24 +64,20 @@ module.exports = function(grunt) {
         // Add filespec list here
         // files : 
         //   './public/dist/style.min.css' : './public/style.css'
-
-
-        minify: {
-          expand: true,
-          cwd: './public/',
-          src: ['*.css', '!*.min.css'],
-          dest: './public/dist/',
-          ext: '.min.css'
-        }
-
-
+      minify: {
+        expand: true,
+        cwd: 'public/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'public/dist/',
+        ext: '.min.css'
+      }
     },
 
     watch: {
       scripts: {
         files: [
           'public/client/**/*.js',
-          'public/lib/**/*.js',
+          'public/lib/**/*.js'
         ],
         tasks: [
           'concat',
