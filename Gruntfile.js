@@ -3,13 +3,22 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      js: {
-        files: {
-          './public/dist/bundle.js' : ['./public/client/app.js', './public/client/link.js', 
-          './public/client/links.js', './public/client/linkView.js', './public/client/linksView.js',
-          './public/client/createLinkView.js', './public/client/router.js']
-        }
+      options: {
+        separator: ';'
+      },
+      
+      dist: {
+        src : ['./public/client/app.js', 
+               './public/client/link.js', 
+               './public/client/links.js', 
+               './public/client/linkView.js',
+               './public/client/linksView.js',
+               './public/client/createLinkView.js', 
+               './public/client/router.js'],
+
+        dest: './public/dist/bundle.js'
       }
+      
     },
 
     mochaTest: {
@@ -33,7 +42,7 @@ module.exports = function(grunt) {
           './public/dist/jquery.min.js'     : './public/lib/jquery.js',
           './public/dist/underscore.min.js' : './public/lib/underscore.js',
           './public/dist/backbone.min.js'   : './public/lib/backbone.js',
-          './public/dist/handlebars.min.js' : './public/lib/handlebars.js',
+          './public/dist/handlebars.min.js' : './public/lib/handlebars.js'
         }
       }
     },

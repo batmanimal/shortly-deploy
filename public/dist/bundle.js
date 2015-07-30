@@ -38,17 +38,14 @@ window.Shortly = Backbone.View.extend({
       .addClass('selected');
   }
 });
-
-Shortly.Link = Backbone.Model.extend({
+;Shortly.Link = Backbone.Model.extend({
   urlRoot: '/links'
 });
-
-Shortly.Links = Backbone.Collection.extend({
+;Shortly.Links = Backbone.Collection.extend({
   model: Shortly.Link,
   url: '/links'
 });
-
-Shortly.LinkView = Backbone.View.extend({
+;Shortly.LinkView = Backbone.View.extend({
   className: 'link',
 
   template: Templates.link,
@@ -59,8 +56,7 @@ Shortly.LinkView = Backbone.View.extend({
     return this;
   }
 });
-
-Shortly.LinksView = Backbone.View.extend({
+;Shortly.LinksView = Backbone.View.extend({
   className: 'links',
 
   initialize: function(){
@@ -82,8 +78,7 @@ Shortly.LinksView = Backbone.View.extend({
     this.$el.append(view.render().el);
   }
 });
-
-Shortly.createLinkView = Backbone.View.extend({
+;Shortly.createLinkView = Backbone.View.extend({
   className: 'creator',
 
   template: Templates.create,
@@ -138,8 +133,7 @@ Shortly.createLinkView = Backbone.View.extend({
       .removeClass('error');
   }
 });
-
-Shortly.Router = Backbone.Router.extend({
+;Shortly.Router = Backbone.Router.extend({
   initialize: function(options){
     this.$el = options.el;
   },
